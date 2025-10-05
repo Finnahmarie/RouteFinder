@@ -7,7 +7,6 @@ const settings = () => {
 
   const [isNotifEnabled, setIsNotifEnabled] = React.useState(false);
   const [isAppNotifEnabled, setIsAppNotifEnabled] = React.useState(false);
-  const [isDarkModeEnabled, setIsDarkModeEnabled] = React.useState(false);
 
   return (
     <View style={styles.container}>
@@ -83,17 +82,11 @@ const settings = () => {
         </View>
       </View>
 
-      <View style={styles.DarkModeContainer}>
-        <View style={styles.DarkModeRow}>
-          <Text style={styles.DarkModeText}>Dark Mode</Text>
-          <Switch 
-            trackColor={{ false: "#f4f3f4", true: "#3e3e3e" }}
-            thumbColor={isDarkModeEnabled ? "#f4f3f4" : "#767577"}
-            ios_backgroundColor="#3e3e3e"
-            onValueChange={() => setIsDarkModeEnabled(prev => !prev)}
-            value={isDarkModeEnabled}
-          />
-        </View>
+      <View style={styles.AppLanguageContainer}>
+          <TouchableOpacity style={styles.AppLanguageRow}>
+            <Text style={styles.AppLanguageText}>App Language</Text>
+            <FontAwesome5 name="chevron-right" color="#000" size={24} style={styles.AppLanguageIcon}/>
+          </TouchableOpacity>
       </View>
 
       <View style={styles.LogOutContainer}>
@@ -246,23 +239,27 @@ const styles =StyleSheet.create({
       marginTop: 4,
       fontWeight: 'bold',
     },
-    DarkModeContainer: {
-      marginTop: -10,
+    AppLanguageContainer: {
+      marginTop: 10,
       paddingHorizontal: 20,
       marginLeft: 43,
     },
-    DarkModeRow: {
+    AppLanguageRow: {
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
     },
-    DarkModeText: {
+    AppLanguageText: {
       fontSize: 14,
       color: "#000",
       marginTop: 4,
+      fontWeight: 'bold',
+    },
+    AppLanguageIcon: {
+      marginRight: 20,
     },
     LogOutContainer: {
-      marginTop: -10,
+      marginTop: 10,
       paddingHorizontal: 20,
       marginLeft: 15,
     },
@@ -277,7 +274,8 @@ const styles =StyleSheet.create({
       fontSize: 14,
       color: "#000",
       marginTop: 4,
-      marginLeft: -10
+      marginLeft: -10,
+      fontWeight: 'bold'
     },
   })
 
